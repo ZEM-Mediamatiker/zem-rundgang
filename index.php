@@ -20,7 +20,7 @@
             <h1>Herzlich willkommen<br/> im ZEM!</h1>
         </div>
         <form method="POST">
-            <input type="submit" name="start" value="Quiz starten" <?php if($active == "false") { echo disabled; } ?>>
+            <input type="submit" name="start" value="Quiz starten" <?php if($active == 0) { echo disabled; } ?>>
         <form>
     </div>
     <footer>

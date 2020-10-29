@@ -24,7 +24,7 @@
                         fclose($settingsa);
                     ?>
                     <label class="switch">
-                        <input type="checkbox" name="active" <?php if($active == "true") { echo "checked"; } ?>>
+                        <input type="checkbox" name="active" <?php if($active == 1) { echo "checked"; } ?>>
                         <span class="slider"></span>
                     </label>
                 </div>
@@ -36,7 +36,7 @@
                         fclose($settingss);
                     ?>
                     <label class="switch">
-                        <input type="checkbox" name="stats" <?php if($show == "true") { echo "checked"; } ?>>
+                        <input type="checkbox" name="stats" <?php if($show == 1) { echo "checked"; } ?>>
                         <span class="slider"></span>
                     </label>
                 </div>

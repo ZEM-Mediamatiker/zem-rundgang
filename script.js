@@ -17,13 +17,13 @@ $(document).ready(function() {
             if($(this).parent().find("input").attr("name") == "active") {
                 $.post( 
                     'set_settings.php', // script location
-                    { active: "true" }, // data to send
+                    { active: 1 }, // data to send
                 );
             }
             if($(this).parent().find("input").attr("name") == "stats") {
                 $.post( 
                     'set_settings.php',
-                    { show: "true" },
+                    { show: 1 },
                 );
             }
             if($(this).parent().find("input").is(":checked")) {
@@ -31,13 +31,13 @@ $(document).ready(function() {
                 if($(this).parent().find("input").attr("name") == "active") {
                     $.post( 
                         'set_settings.php',
-                        { active: "false" }
+                        { active: 0 }
                     );
                 }
                 if($(this).parent().find("input").attr("name") == "stats") {
                     $.post( 
                         'set_settings.php',
-                        { show: "false" },
+                        { show: 0 },
                     );
                 }
             }

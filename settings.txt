@@ -1,2 +1,2 @@
-enabled: false
-show_stats: false
+enabled: 1
+show_stats: 0
