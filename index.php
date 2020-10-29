@@ -115,7 +115,7 @@
                 }
             }
             
-        } else if($checkpoint == 3 || $checkpoint == 5 || $checkpoint == 7) {
+        } else if($checkpoint == 3 || $checkpoint == 5 || $checkpoint == 7 || $checkpoint == 9) {
         ?>
             <header>
                 <h1><?php if($_GET['t'] == y) { echo "Richtig!"; } else { echo "Falsch!"; } ?></h1>
@@ -157,7 +157,46 @@
         } else if($checkpoint == 6) {
             ?>
             <header>
-                <h1>Frage: Bilderauswahl (mehrere möglich?)</h1>
+                <h1>Welche Farbe hatte Lars sein Pullover in unserem Video?</h1>
+            </header>
+
+            <form class="q question-choose-c" method="POST">
+                <div class="answer-container">
+                    <fieldset>
+                        <label for="answer">
+                            <input type="radio" value="1" name="answer">
+                        </label>
+                        <label for="answer">
+                            <input type="radio" value="2" name="answer">
+                        </label>
+                        <label for="answer">
+                            <input type="radio" value="3" name="answer">
+                        </label>
+                        <label for="answer">
+                            <input type="radio" value="4" name="answer">
+                        </label>
+                    </fieldset>
+                </div>
+                <input type="submit" name="Q3" value="Absenden">
+            </form>
+
+            <?php
+
+            if(isset($_POST['Q3'])) {
+                setcookie("checkpoint", 7.4, 0, "/");
+                $q3 = strtolower($_POST['answer']);
+                if($q3 == 3) {
+                    $points = $_COOKIE['points'] + 10;
+                    setcookie("points", $points, 0, "/");
+                    header( "Location: ?t=y&c" );
+                } else {
+                    header( "Location: ?t=n&c" );
+                } 
+            }
+        } else if($checkpoint == 8) {
+            ?>
+            <header>
+                <h1>Bildfrage (siehe Notizen)</h1>
             </header>
 
             <form class="q question-choose-img" method="POST">
@@ -181,15 +220,15 @@
                         </label>
                     </fieldset>
                 </div>
-                <input type="submit" name="Q3" value="Absenden">
+                <input type="submit" name="Q4" value="Absenden">
             </form>
-            
+
             <?php
 
-            if(isset($_POST['Q3'])) {
-                setcookie("checkpoint", 7.4, 0, "/");
-                $q3 = strtolower($_POST['answer']);
-                if($q3 == 3) {
+            if(isset($_POST['Q4'])) {
+                setcookie("checkpoint", 9.5, 0, "/");
+                $q4 = strtolower($_POST['answer']);
+                if($q4 == 4) {
                     $points = $_COOKIE['points'] + 10;
                     setcookie("points", $points, 0, "/");
                     header( "Location: ?t=y&c" );
@@ -198,14 +237,14 @@
                 } 
             }
     //SET END-CHECKPOINT
-        } else if($checkpoint == 22) {
+        } else if($checkpoint == 10) {
             $data = file('users.txt');
             $search = str_replace("+", " ", explode("/", $_COOKIE['user'])[0]);
             $pointsset = "(".$_COOKIE['points'].")/".str_replace("+", " ", explode("/", $_COOKIE['user'])[0])." ";
             $data = file_get_contents("users.txt");
             $newdata = str_replace($search, $pointsset, $data);
             file_put_contents("users.txt", $newdata);
-            setcookie("checkpoint", 7.01, 0, "/");
+            header ( "Location: end.php");
         }
     // PROFILE LINK
     if($checkpoint >= 2) {

@@ -29,7 +29,7 @@
         fclose($settingss);
 
         if($show != "true") {
-            if($linecount == $playercount) {
+            if($linecount >= $playercount) {
                 $lines = file('users.txt');
                 $activeuser = str_replace("+", " ", explode("/", $_COOKIE['user'])[0]);
                 usort($lines, function ($a, $b){

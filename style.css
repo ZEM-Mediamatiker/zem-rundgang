@@ -24,7 +24,6 @@ img {
     border-bottom-right-radius: 4px;
     font-weight: 600;
 }
-
 header h1::before {
     content: " ";
     position: absolute;
@@ -255,6 +254,42 @@ fieldset input:focus {
 .question-choose-img fieldset input[type=radio]:checked + img {
     outline: 2px solid #f00;
 }  
+
+.question-choose-c fieldset input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 160px;
+    height: 160px;
+    margin: 3px 3px;
+    border-color: #fff;
+    appearance: none;
+    -webkit-appearance: none;
+}
+.question-choose-c fieldset label:nth-child(1) input {
+    border-radius: 8px 0 0 0;
+    background-color: greenyellow;
+}
+.question-choose-c fieldset label:nth-child(2) input {
+    border-radius: 0 8px 0 0;
+    background-color: red;
+}
+.question-choose-c fieldset label:nth-child(3) input {
+    border-radius: 0 0 0 8px;
+    background-color: #f7a513;
+}
+.question-choose-c fieldset label:nth-child(4) input {
+    border-radius: 0 0 8px 0;
+    background-color: blue;
+}
+.question-choose-c fieldset input[type=radio]:checked:after {
+    content: url(images/checked.svg);
+    display: inline-block;
+
+    width: 50px;
+    height: auto;
+    color: #043C6D;
+}
 
 form.question input, form.question .select {
     margin: 10px 0;
