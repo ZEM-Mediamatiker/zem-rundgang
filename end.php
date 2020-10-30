@@ -11,7 +11,7 @@
         // users.txt --> Array --> sortieren und in txt. File ersetzen
 
         // Spieleranzahl setzen!
-        $playercount = 1;
+        $playercount = 10;
 
         $file="users.txt";
         $linecount = 0;
